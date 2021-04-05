@@ -1,8 +1,9 @@
 class User 
     #shortcut for writing getters/setters
-    attr_accessor :name
-    def initialize(name)
+    attr_accessor :name, :email
+    def initialize(name, email)
         @name = name
+        @email = email
     end
 
     #getters/setters
@@ -18,9 +19,9 @@ class User
     end 
 end 
 
-user = User.new("Vijay")
-user1 = User.new("John")
-user2 = User.new("Kevin")
+user = User.new("Vijay", "vijaymenonx@gmail.com")
+# user1 = User.new("John")
+# user2 = User.new("Kevin")
 
 #puts User.ancestors
 puts user
@@ -34,6 +35,8 @@ puts user
 # user.set_name = "John"
 
 # w/attr_accessor
-puts user.name
-user.name = "Winston"
-puts user.name
+# puts user.name
+# user.name = "Winston"
+# puts user.name
+
+puts "My user's name is #{user.name} and my email is #{user.email}"
