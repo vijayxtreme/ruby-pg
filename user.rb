@@ -1,4 +1,12 @@
+module Destructable
+  def destroy(anyObject)
+    puts "I will destroy the object"
+  end
+end
+
 class User 
+    # adds all the methods from module
+    include Destructable
     #shortcut for writing getters/setters
     attr_accessor :name, :email
     def initialize(name, email)
@@ -40,3 +48,27 @@ puts user
 # puts user.name
 
 puts "My user's name is #{user.name} and my email is #{user.email}"
+
+class Buyer < User
+    def run
+        puts "Hey I'm not running"
+    end
+    #class (Static) method
+    def self.identify_self
+        puts "Hey I am a class method"
+    end
+
+end
+
+class Seller < User
+end
+
+class Admin < User
+end
+
+buyer1 = Buyer.new("John Doe", "johndoe1@example.com")
+buyer1.run
+Buyer.identify_self
+
+user = User.new("Majin Boo", "majinboo@gmail.com")
+user.destroy("myname")
